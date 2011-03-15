@@ -2,8 +2,8 @@ require 'formula'
 
 class Mysql55 <Formula
   homepage 'http://dev.mysql.com/doc/refman/5.5/en/'
-  url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.5/mysql-5.5.8.tar.gz'
-  md5 '42e866302b61f5e213afd33e04677017'
+  url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.5/mysql-5.5.9.tar.gz'
+  md5 '701c0c44b7f1c2300adc0dc45729f903'
 
   depends_on 'readline'
   depends_on 'cmake' => :build
@@ -35,7 +35,7 @@ class Mysql55 <Formula
 
     args << "-DWITH_UNIT_TESTS=OFF" if not ARGV.include? '--with-tests'
     args << "-DINSTALL_SQLBENCHDIR=" if not ARGV.include? '--with-bench'
-    
+
     # Make universal for bindings to universal applications
     args << "-DCMAKE_OSX_ARCHITECTURES='ppc;i386'" if ARGV.include? '--universal'
 
@@ -102,7 +102,7 @@ __END__
 +++ new/scripts/mysqld_safe.sh  2010-12-14 12:34:31.000000000 -0800
 @@ -555,7 +555,7 @@ else
  fi
- 
+
  USER_OPTION=""
 -if test -w / -o "$USER" = "root"
 +if test -w /sbin -o "$USER" = "root"
